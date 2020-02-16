@@ -25,7 +25,7 @@ class RatesBloc extends Bloc<RatesEvent, RatesState> {
     if (event is FetchRates){
       yield Begin();
       try{
-        final List<Rates> rates = await repository.getRates();
+        final Rates rates = await repository.getRates();
         yield RatesLoaded(rates: rates);
       }
       catch(_){

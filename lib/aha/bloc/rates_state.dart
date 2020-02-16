@@ -9,7 +9,7 @@ abstract class RatesState extends Equatable {
 class Begin extends RatesState {}
 class RatesError extends RatesState{}
 class RatesLoaded extends RatesState{
-  final List<Rates> rates;
+  final Rates rates;
   const RatesLoaded({
     this.rates
   });

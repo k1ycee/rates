@@ -4,5 +4,5 @@ import 'package:fire/aha/rates_model.dart';
 
 class RatesRepository{
   RatesCall _ratesCall = RatesCall();
-  Future<List<Rates>> getRates() => _ratesCall.fetchRates();
+  Future<Rates> getRates() => _ratesCall.fetchRates();
 }

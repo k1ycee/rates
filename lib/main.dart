@@ -48,33 +48,28 @@ class _ExchangeState extends State<Exchange> {
           return Center(child: Text('Did not fetch rates try again'),);
         }
         if(state is RatesLoaded){
-          return Center(child: Text(state.rates.toString()));
+          return ListView.builder(
+            itemCount: state.rates.rates.length,
+            itemBuilder: (BuildContext context, int index){
+              return ExchangeRates(rates: state.rates.rates[index],);
+            }
+          );
         }
         return null;
       }
     );
   }
 }
-// class Rates extends StatefulWidget {
-//   @override
-//   _RatesState createState() => _RatesState();
-// }
-
-// class _RatesState extends State<Rates> {
-//   @override
-//   Widget build(BuildContext context) {
-    
-//   }
-// }
 
 
-// class ExchangeRates extends StatelessWidget {
-//   final rates;
-//   ExchangeRates({this.rates});
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListTile(
-//       title: Text(rates),
-//     );
-//   }
-// }
+
+class ExchangeRates extends StatelessWidget {
+  final rates;
+  ExchangeRates({this.rates});
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(rates.toString()),
+    );
+  }
+}
